@@ -7,7 +7,7 @@ import java.util.*;
 import java.time.LocalDate;
 
 @SuppressWarnings("unused")
-public class CustomerField {
+public class CustomerField implements Comparable<CustomerField> {
 	private static int customerid;
 	private String firstname, lastname;
 	private String email;
@@ -18,6 +18,7 @@ public class CustomerField {
 
 	private static int id;
 
+	@SuppressWarnings("static-access")
 	public CustomerField(String first, String last, String email, String pass, LocalDate dob, ServicePlan plan,
 			double amnt) {
 		this.customerid = ++id;
@@ -55,9 +56,9 @@ public class CustomerField {
 		}
 		return false;
 	}
-
-	public int compareTo(CustomerField cust) {
-		return this.getEmail().compareTo(cust.getEmail());
+	public int compareTo(CustomerField c) {
+		int smail=c.getEmail().compareTo(email);
+		return smail;
 	}
 
 	public String getEmail() {

@@ -9,6 +9,7 @@ import com.validation.CustomerValidation;
 
 import customerpackage.CustomerField;
 
+@SuppressWarnings("unused")
 public class SignIn {
 //		for (CustomerField c : cust) {
 //			if (checkEmail(cust, email).equals(email) && checkPassword(cust,password).equals(password)) {

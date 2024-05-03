@@ -1,13 +1,17 @@
 package customerpackage;
 
 import static com.utility.SignUp.registration;
-
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
-
+import com.utility.Utilities.*;
+import com.utility.PopulatedData;
 import com.utility.SignIn;
 import com.utility.Utilities;
 
+@SuppressWarnings("unused")
 public class CMSTest {
 
 	public static void main(String[] args) {
@@ -17,8 +21,8 @@ public class CMSTest {
 			boolean exit = false;
 			do {
 
-				System.out.println("===HELLO=== \n1.Sign UP \n2.Display Details \n3.Sign IN \n4.Change Password: "
-						+ "\n5. Unscribe Customer \n6.Sort with D.O.B. \7.EXIT");
+				System.out.println("===HELLO=== \n1.Sign UP: \n2.Display Details: \n3.Sign IN: \n4.Change Password: "
+						+ "\n5. Unscribe Customer: \n6.Custom Sorting: \n7.Natural Sorting \n8.EXIT");
 				System.out.println("Choose the Valid Option: ");
 				int choice = sc.nextInt();
 				try {
@@ -26,6 +30,7 @@ public class CMSTest {
 					case 1:// Registration
 						System.out.println("===Enter Customer Details to Register:=== ");
 						registration(cust, sc);
+						PopulatedData.populatedData();
 						break;
 					case 2:// display
 						for (CustomerField c : cust)
@@ -58,7 +63,26 @@ public class CMSTest {
 						Utilities.unSubscribe(cust, maill);
 
 						break;
-					case 6://
+					case 6:
+						System.out.println("::Custome Ordering::");
+						System.out.println("Sort acc. to D.O.B. n Last-Name");
+						Collections.sort(cust,new Comparator<CustomerField>() {
+							@Override
+							public int compare(CustomerField o1, CustomerField o2) {
+								int dsort=o1.getDob().compareTo(o2.getDob());
+								if(dsort==0) {
+									return o1.getLastname().compareTo(o2.getLastname());
+								}
+								return dsort;
+							}
+						});
+						break;
+					case 7:
+						System.out.println("::Natural Ordering::");
+						System.out.println("Sorting as per Email");
+						Collections.sort(cust);
+						break;
+					case 8://
 						System.out.println("EXIT!!!");
 						exit = true;
 						break;
