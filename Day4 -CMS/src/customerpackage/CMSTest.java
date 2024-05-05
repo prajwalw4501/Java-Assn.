@@ -44,7 +44,6 @@ public class CMSTest {
 						String password = sc.next();
 						SignIn.logIn(cust, email, password);
 						System.out.println("Successfully LogIn!!");
-//				CustomerValidation.dupCustomer(email, cust);
 
 						break;
 					case 4:// change password
@@ -64,13 +63,13 @@ public class CMSTest {
 
 						break;
 					case 6:
-						System.out.println("::Custome Ordering::");
+						System.out.println("::Custom Ordering::");
 						System.out.println("Sort acc. to D.O.B. n Last-Name");
-						Collections.sort(cust,new Comparator<CustomerField>() {
+						Collections.sort(cust, new Comparator<CustomerField>() {
 							@Override
 							public int compare(CustomerField o1, CustomerField o2) {
-								int dsort=o1.getDob().compareTo(o2.getDob());
-								if(dsort==0) {
+								int dsort = o1.getDob().compareTo(o2.getDob());
+								if (dsort == 0) {
 									return o1.getLastname().compareTo(o2.getLastname());
 								}
 								return dsort;
