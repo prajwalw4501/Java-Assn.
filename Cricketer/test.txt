@@ -1,0 +1,1 @@
+[Cricketer [name=Sai, age=22, email_id=sai@gmail.com, phone=12156898, rating=10], Cricketer [name=Kholi, age=35, email_id=kholi@gmail.com, phone=1234567890, rating=10], Cricketer [name=Rohit, age=36, email_id=rohit@gmail.com, phone=1234567890, rating=8], Cricketer [name=Dhoni, age=42, email_id=dhoni@gmail.com, phone=1234567890, rating=9]]
